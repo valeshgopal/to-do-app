@@ -7,9 +7,9 @@ const ListItems = (props) => {
   return (
     <>
       <ul>
-        {items.map((item, index) => {
+        {items.map((item) => {
           return (
-            <ListItem item={item} handleDelete={handleDelete} key={index} />
+            <ListItem item={item} handleDelete={handleDelete} key={item.id} />
           );
         })}
       </ul>
