@@ -11,8 +11,14 @@ const InputForm = () => {
     setValue('');
   };
 
-  console.log(value);
-  console.log(items);
+  const handleDelete = (itemName) => {
+    setItems(
+      items.filter((item) => {
+        return item !== itemName;
+      })
+    );
+  };
+
   return (
     <>
       <form>
@@ -26,7 +32,7 @@ const InputForm = () => {
         </button>
       </form>
 
-      <ListItems items={items} />
+      <ListItems items={items} handleDelete={handleDelete} />
     </>
   );
 };
