@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ListItems from './components/ListItems';
+import Alert from './components/Alert';
 import { v4 as uuid } from 'uuid';
 import './App.css';
 
@@ -15,6 +16,8 @@ const App = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
 
+  const [alert, setAlert] = useState({ show: false, msg: '', type: '' });
+
   const inputRef = useRef();
 
   const unique_id = uuid();
@@ -26,17 +29,20 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!task) return;
-    else if (task && isEditing) {
+    if (task === '') {
+      showAlert(true, 'Please enter a task!', 'danger');
+    } else if (task && isEditing) {
       setItems((prevItems) =>
         prevItems.map((item) =>
           item.id === editId ? { ...item, taskName: task } : item
         )
       );
+      showAlert(true, 'Task updated!', 'success');
       setTask('');
       setEditId(null);
       setIsEditing(false);
     } else {
+      showAlert(true, 'Task added!', 'success');
       setItems([...items, { id, taskName: task }]);
       setTask('');
       setIsEditing(false);
@@ -44,6 +50,10 @@ const App = () => {
 
     inputRef.current.value = '';
     inputRef.current.focus();
+  };
+
+  const showAlert = (show = false, msg = '', type = '') => {
+    setAlert({ show, msg, type });
   };
 
   const handleEdit = (id) => {
@@ -61,11 +71,13 @@ const App = () => {
         return item.id !== id;
       })
     );
+    showAlert(true, 'Task deleted!', 'danger');
   };
 
   const handleDeleteAll = () => {
     localStorage.clear();
     setItems([]);
+    showAlert(true, 'All tasks deleted!', 'danger');
   };
 
   useEffect(() => {
@@ -78,6 +90,7 @@ const App = () => {
 
   return (
     <main className='container'>
+      <Alert {...alert} removeAlert={showAlert} items={items} />
       <h2 className='heading'>To Do App</h2>
       <form className='todo-form'>
         <input

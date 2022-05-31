@@ -16,7 +16,7 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   color: var(--color-primary);
   background-color: var(--color-primary);
   padding: 2rem;
@@ -58,7 +58,8 @@ body {
   font-family: inherit;
   padding: 0.5rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   background-color: var(--color-primary);
   color: var(--color-secondary);
 }
@@ -71,6 +72,7 @@ body {
 }
 
 .btn-clear {
+  border-radius: 5px;
   margin-top: 30px;
 }
 
@@ -102,6 +104,25 @@ body {
 
 .icon-edit {
   color: rgb(1, 142, 8);
+}
+
+.alert-msg {
+  display: none;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 5px;
+  color: var(--color-secondary);
+}
+
+.alert-msg-danger {
+  display: block;
+  background-color: rgb(255, 25, 0);
+}
+
+.alert-msg-success {
+  display: block;
+  background-color: rgb(1, 142, 8);
 }
 
 @media screen and (max-width: 540px) {
