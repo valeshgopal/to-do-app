@@ -19,6 +19,7 @@ body {
   align-items: center;
   color: var(--color-primary);
   background-color: var(--color-primary);
+  padding: 2rem;
 }
 
 .container {
@@ -42,7 +43,7 @@ body {
 
 .input-field {
   font-family: inherit;
-  width: 350px;
+  width: 450px;
   padding: 0.5rem;
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -78,10 +79,10 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem;
-  margin-left: -2rem;
+  margin-left: -2.4rem;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid #ccc;
-  width: 350px;
+  width: 450px;
 }
 
 .list-item li {
@@ -101,4 +102,21 @@ body {
 
 .icon-edit {
   color: rgb(1, 142, 8);
+}
+
+@media screen and (max-width: 540px) {
+  .input-field {
+    width: 80vw;
+  }
+
+  .list-item {
+    width: 80vw;
+  }
+
+  .list-item li {
+    width: 40vw;
+  }
+  .container {
+    width: 90vw;
+  }
 }
