@@ -16,4 +16,4 @@ User can Add a task, Update a Task and Delete a Task. The tasks are stored in Lo
 
 ## Challenges
 
-Using Array methods to perform edit and delete operations. Also, creating alerts with the help of useEffect hook and setTimeout function.
+Identifying the states and using Array methods to perform edit and delete operations. Also, creating alerts with the help of useEffect hook and setTimeout function.
