@@ -12,7 +12,7 @@ React, CSS
 
 ## Features
 
-User can Add a task, Update a Task and Delete a Task. The tasks are stored in Local Storage so the user can retreive them even after reload.
+User can Add a task, Update a Task and Delete a Task. The tasks are stored in Local Storage so the user can retrieve them even after reload.
 
 ## Challenges
 
