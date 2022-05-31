@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ListItems from './components/ListItems';
 import { v4 as uuid } from 'uuid';
+import './App.css';
 
 const App = () => {
   const [task, setTask] = useState('');
@@ -21,8 +22,19 @@ const App = () => {
       setItems([...items, { id, taskName: task }]);
       setTask('');
     }
+
     inputRef.current.value = '';
     inputRef.current.focus();
+  };
+
+  const handleEdit = (id) => {
+    // setEditItem(true);
+    inputRef.current.focus();
+    const newTask = items.find((item) => item.id === id).taskName;
+    setTask(newTask);
+    inputRef.current.value = newTask;
+    const newItems = items.filter((item) => item.id !== id);
+    setItems([...newItems]);
   };
 
   const handleDelete = (id) => {
@@ -33,20 +45,31 @@ const App = () => {
     );
   };
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
-    <>
-      <form>
+    <main className='container'>
+      <form className='todo-form'>
         <input
+          className='input-field'
           ref={inputRef}
           type='text'
           placeholder='Enter a new item'
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Add Task</button>
+        <button className='btn' onClick={handleSubmit}>
+          Add Task
+        </button>
       </form>
 
-      <ListItems items={items} handleDelete={handleDelete} />
-    </>
+      <ListItems
+        items={items}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+    </main>
   );
 };
 

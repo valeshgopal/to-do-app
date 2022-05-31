@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f2ebe9;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  background-color: #243a73;
+  border-radius: 10px;
+}
+
+.todo-form {
+  position: relative;
+}
+
+.input-field {
+  font-family: inherit;
+  width: 350px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.btn {
+  font-family: inherit;
+  padding: 0.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 5px;
+  background-color: rgb(200, 255, 0);
+  color: rgb(255, 72, 0);
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-left: -2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  width: 350px;
+}
+
+.list-item li {
+  list-style-type: none;
+  width: 275px;
+  word-wrap: break-word;
+}
+
+.list-item .icon {
+  margin-left: 0.75rem;
+  cursor: pointer;
+}
+
+.icon-delete {
+  color: rgb(255, 72, 0);
+}
+
+.icon-edit {
+  color: rgb(200, 255, 0);
+}

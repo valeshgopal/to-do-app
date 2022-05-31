@@ -1,14 +1,25 @@
 import React from 'react';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const ListItem = (props) => {
-  const { item, handleDelete } = props;
+  const { item, handleEdit, handleDelete } = props;
   console.log(item);
   return (
     <>
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '20px' }}>
+      <div className='list-item'>
         <li>{item.taskName}</li>
-        <button>Edit</button>
-        <button onClick={() => handleDelete(item.id)}>Delete</button>
+        <div>
+          <FaEdit
+            className='icon icon-edit'
+            onClick={() => handleEdit(item.id)}
+          />
+          <FaTrash
+            className='icon icon-delete'
+            onClick={() => handleDelete(item.id)}
+          >
+            Delete
+          </FaTrash>
+        </div>
       </div>
     </>
   );
