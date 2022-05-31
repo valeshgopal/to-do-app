@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from './ListItem';
 
 const ListItems = (props) => {
-  const { items, handleEdit, handleDelete } = props;
+  const { items, handleEdit, handleDelete, handleDeleteAll } = props;
 
   return (
     <>
@@ -18,6 +18,9 @@ const ListItems = (props) => {
           );
         })}
       </ul>
+      <button class='btn btn-clear' onClick={handleDeleteAll}>
+        Clear Tasks
+      </button>
     </>
   );
 };

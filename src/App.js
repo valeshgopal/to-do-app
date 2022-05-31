@@ -63,6 +63,11 @@ const App = () => {
     );
   };
 
+  const handleDeleteAll = () => {
+    localStorage.clear();
+    setItems([]);
+  };
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -82,16 +87,18 @@ const App = () => {
           placeholder='Enter a new task'
           onChange={handleChange}
         />
-        <button className='btn' onClick={handleSubmit}>
+        <button className='btn btn-main' onClick={handleSubmit}>
           {isEditing ? 'Update' : 'Add Task'}
         </button>
       </form>
-
-      <ListItems
-        items={items}
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-      />
+      {items.length > 0 && (
+        <ListItems
+          items={items}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+          handleDeleteAll={handleDeleteAll}
+        />
+      )}
     </main>
   );
 };
